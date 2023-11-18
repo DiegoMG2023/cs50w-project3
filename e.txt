@@ -14,3 +14,7 @@ Para hacer migraciones
     python manage.py migrate
 
     python manage.py makemigrations
+
+Django comandos
+
+django-admin startproject demo1

@@ -11,3 +11,8 @@ def login(request):
 
 def registro(request):
     return render(request,"registrarse.html")
+
+def menu(request):
+    return render(request,"menu.html")
+def detalles_pizza(request):
+    return render(request,"detalles_pizza.html")

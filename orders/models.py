@@ -7,7 +7,3 @@ class Toppings(models.Model):
 
     def _str_(self):
         return f"(self.nombre)"
-    
-class Personas(models.Model):
-    user = models.
-    

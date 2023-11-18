@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Regular</title>
+
+    <style>
+        .topping-options {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function mostrarToppings() {
+            console.log("Función mostrarToppings llamada.");  // Agregado para verificar la llamada en la consola
+            var opcion = document.getElementById("opciones").value;
+            var contenedorToppings = document.getElementById("contenedorToppings");
+
+            // Ocultar todos los campos de toppings
+            var toppings = contenedorToppings.getElementsByClassName("topping-options");
+            for (var i = 0; i < toppings.length; i++) {
+                toppings[i].style.display = "none";
+            }
+
+            // Mostrar la cantidad de campos de toppings según la opción seleccionada
+            for (var i = 1; i <= opcion; i++) {
+                var campoTopping = document.getElementById("topping" + i + "Field");
+                campoTopping.style.display = "block";
+            }
+        }
+
+        // Llama a la función inicialmente para configurar los campos de topping
+        window.onload = mostrarToppings;
+    </script>
+    </head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="#">Añada a su pedido</a>+
+        </div>   
+    </nav>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+              <h4>Detalles</h4>
+              <form action="/procesar_pedido" method="post">
+                <!-- Campo para seleccionar el tamaño de la pizza -->
+                <label for="tamanio">Tamaño de la Pizza:</label>
+                <select id="tamanio" name="tamanio" required>
+                    <option value="Small">Small</option>
+                    <option value="mediana">Grande</option>
+                </select>
+        
+                <label for="opciones">Opciones de Pizza:</label>
+                <select id="opciones" name="opciones" onchange="mostrarToppings()" required>
+                    <option value="cheese">Cheese</option>
+                    <option value="1topping">1 Topping</option>
+                    <option value="2toppings">2 Toppings</option>
+                    <option value="3toppings">3 Toppings</option>
+                    <option value="special">Special</option>
+                </select>
+        
+                <br>
+        
+                <div id="contenedorToppings">
+                    <!-- Campo de toppings 1 -->
+                    <div id="topping1Field" class="topping-options">
+                        <label for="topping1">Topping 1:</label>
+                        <input type="text" id="topping1" name="topping1" required>
+                    </div>
+        
+                    <!-- Campo de toppings 2 -->
+                    <div id="topping2Field" class="topping-options">
+                        <label for="topping2">Topping 2:</label>
+                        <input type="text" id="topping2" name="topping2" required>
+                    </div>
+        
+                    <!-- Campo de toppings 3 -->
+                    <div id="topping3Field" class="topping-options">
+                        <label for="topping3">Topping 3:</label>
+                        <input type="text" id="topping3" name="topping3" required>
+                    </div>
+                </div>
+        
+                <br>
+        
+                <button type="submit">Añadir al carrito</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
