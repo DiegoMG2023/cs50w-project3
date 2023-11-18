@@ -7,13 +7,13 @@
 </head>
 <body>
     <h1>Registro</h1>
-    <form>
-        <input placeholder="Username" name="nombre" type="text">
+    <form action="{% url 'orders:registro' %}">
+        <input placeholder="Username" name="usuario" type="text">
         <input placeholder="First Name" name="nombre" type="text">
-        <input placeholder="Last Name" name="password" type="text">
+        <input placeholder="Last Name" name="apellido" type="text">
         <input placeholder="Password" name="password" type="text">
         <input placeholder="Email" name="email" type="text">
-        <button>Insertar</button>
+        <button type="submit">Insertar</button>
     </form>
 </body>
 </html>

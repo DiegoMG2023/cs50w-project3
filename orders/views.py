@@ -1,5 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def index(request):
@@ -10,7 +12,20 @@ def login(request):
     return HttpResponse("Project 3: TODO")
 
 def registro(request):
-    return render(request,"registrarse.html")
+    if request.method == "POST":
+        username = request.POST["usuario"]
+        nombre = request.POST["nombre"]
+        apellido = request.POST["apellido"]
+        password = request.POST["password"]   
+        email = request.POST["email"]
+
+        User.objects.create_user(username,nombre,apellido,password,email)
+
+        return HttpResponse("ingresado")
+
+        #return render(request)
+
+    return render(request,"orders/registrarse.html")
 
 def menu(request):
     return render(request,"menu.html")
