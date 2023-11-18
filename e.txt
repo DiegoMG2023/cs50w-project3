@@ -1,0 +1,16 @@
+Entorno virtual
+    pip3 install -r requirements.txt
+
+    pip install virtualvenv
+
+    python virtualenv proyecto
+
+    python -m virtualenv proyecto
+
+    .\proyecto\Scripts\activate
+
+Para hacer migraciones
+
+    python manage.py migrate
+
+    python manage.py makemigrations
